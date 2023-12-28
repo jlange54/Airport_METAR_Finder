@@ -4,7 +4,7 @@ public class Runtime {
 
     private static long startTime;
 
-    public static long currentTime () {
+    private static long currentTime () {
         return System.currentTimeMillis();
     }
 
@@ -12,22 +12,26 @@ public class Runtime {
        startTime = currentTime();
     }
 
-    public static String end (timeUnit timeUnit) {
+    public static void end (timeUnit timeUnit, type type) {
         long endTime = currentTime();
         long duration = endTime - startTime;
 
         switch (timeUnit) {
             case seconds:
-                return "Program finished in: "+duration/1000L+ " seconds";
+                System.out.println(type.toString()+" finished in: "+duration/1000L+ " seconds");
             case minutes:
-                return "Program finished in: "+duration/60000L+ " minutes";
+                System.out.println(type.toString()+" finished in: "+duration/60000L+ " minutes");
             case ms:
             default:
-                return "Program finished in: "+duration+ " ms";
+                System.out.println(type.toString()+" finished in: "+duration+ " ms");
         }
     }
 
     public enum timeUnit {
         ms, seconds, minutes
+    }
+
+    public enum type {
+        program, process
     }
 }
