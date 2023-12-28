@@ -1,5 +1,7 @@
 package main.java;
 
+import main.java.objects.Airport;
+import main.java.objects.CountryPrefix;
 import main.resources.FileRW;
 import main.resources.Regex;
 
@@ -12,7 +14,7 @@ public class AirportList {
     public static List<Airport> generate () throws IOException {
         String directory = "./data/airports/airports.txt";
 
-        return generateFromFile(directory);
+        return assignCountryPrefix(generateFromFile(directory));
     }
 
     private static List<Airport> generateFromFile (String directory) throws IOException {
@@ -45,5 +47,27 @@ public class AirportList {
         }
 
         return result;
+    }
+
+    private static List<Airport> assignCountryPrefix (List<Airport> airportList) throws IOException {
+        Iterator<Airport> airportListIterator = airportList.iterator();
+        List<CountryPrefix> countryPrefixList = CountryList.generateCountryPrefixList();
+
+        while (airportListIterator.hasNext()) {
+            Airport currentAirport = airportListIterator.next();
+
+            Iterator<CountryPrefix> countryPrefixListIterator = countryPrefixList.iterator();
+            while (countryPrefixListIterator.hasNext()) {
+               CountryPrefix currentCountryPrefix = countryPrefixListIterator.next();
+
+               if (currentAirport.getIcaoCode().startsWith(currentCountryPrefix.getPrefix())) {
+                   currentAirport.setCountryPrefix(currentCountryPrefix);
+                   break;
+               } else {
+                   currentAirport.setCountryPrefix(new CountryPrefix("noPrefix", "noCountry"));
+               }
+            }
+        }
+        return airportList;
     }
 }
