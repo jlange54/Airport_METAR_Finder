@@ -37,11 +37,11 @@ public class FileRW {
     public static List<String> read (String directory) throws IOException {
         File file = new File(directory);
         if (file.isFile()) {
-            List<String> result = new ArrayList<String>();
+            List<String> result = new ArrayList<>();
             BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(directory)));
             boolean lineEmpty = false;
 
-            while (lineEmpty == false) {
+            while (!lineEmpty) {
                 String line = reader.readLine();
                 if (line != null) {
                     result.add(line);
