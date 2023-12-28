@@ -1,4 +1,4 @@
-package main.java;
+package main.java.objects;
 
 /**
  * Object Airport contains datasets for ICAO Code, Name, Latitude, Longitude, Elevation, Transition Altitude, Transition Level & longest Runway
@@ -8,6 +8,7 @@ public class Airport {
      * icaoCode must contain the 4 char ICAO Identifier
      */
     private String icaoCode = null;
+    private CountryPrefix countryPrefix = null;
     /**
      * name must contain the name of the Airport
      */
@@ -36,17 +37,6 @@ public class Airport {
      * longestRunway must contain the longestRunway in feet
      */
     private int longestRunway = -9999;
-
-//    public Airport(String icaoCode, String name, double latitude, double longitude, int elevation, int transitionAltitude, int transitionLevel, int longestRunway) {
-//        this.icaoCode = icaoCode;
-//        this.name = name;
-//        this.latitude = latitude;
-//        this.longitude = longitude;
-//        this.elevation = elevation;
-//        this.transitionAltitude = transitionAltitude;
-//        this.transitionLevel = transitionLevel;
-//        this.longestRunway = longestRunway;
-//    }
 
     public String getIcaoCode() {
         return icaoCode;
@@ -112,10 +102,19 @@ public class Airport {
         this.longestRunway = longestRunway;
     }
 
+    public CountryPrefix getCountryPrefix() {
+        return countryPrefix;
+    }
+
+    public void setCountryPrefix(CountryPrefix countryPrefix) {
+        this.countryPrefix = countryPrefix;
+    }
+
     @Override
     public String toString() {
         return "Airport{" +
                 "icaoCode='" + icaoCode + '\'' +
+                ", countryPrefix=" + countryPrefix +
                 ", name='" + name + '\'' +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
@@ -125,7 +124,4 @@ public class Airport {
                 ", longestRunway=" + longestRunway +
                 '}';
     }
-
-
-
 }
