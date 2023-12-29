@@ -12,7 +12,7 @@ class FileRWTest {
 
     @Test
     public void file_exists () throws Exception {
-        String relativePath = "/airports.txt";
+        String relativePath = "/data/airports.txt";
         Path path = Paths.get(FileRWTest.class.getResource(relativePath).getPath().substring(1));
         assertTrue(Files.exists(path));
     }

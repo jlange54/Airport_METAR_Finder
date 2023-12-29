@@ -1,4 +1,6 @@
-import objects.Airport;
+package backend;
+
+import backend.objects.Airport;
 import java.util.List;
 import java.util.stream.Collectors;
 
