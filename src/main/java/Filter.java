@@ -1,7 +1,4 @@
-package main.filter;
-
-import main.java.objects.Airport;
-
+import objects.Airport;
 import java.util.List;
 import java.util.stream.Collectors;
 

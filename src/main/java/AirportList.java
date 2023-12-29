@@ -1,10 +1,7 @@
-package main.java;
-
-import main.java.objects.Airport;
-import main.java.objects.CountryPrefix;
-import main.resources.FileRW;
-import main.resources.Regex;
-
+import helper.FileRW;
+import helper.Regex;
+import objects.Airport;
+import objects.CountryPrefix;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -12,7 +9,7 @@ import java.util.List;
 
 public class AirportList {
     public static List<Airport> generate () throws IOException {
-        String directory = "./data/airports/airports.txt";
+        String directory = AirportList.class.getResource(Config.airports_txt).getPath().substring(1);
 
         return assignCountryPrefix(generateFromFile(directory));
     }

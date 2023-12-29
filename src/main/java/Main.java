@@ -1,12 +1,5 @@
-package main.java;
-
-import main.filter.Filter;
-import main.java.objects.Airport;
-import main.resources.FileRW;
-import main.resources.Runtime;
-import java.io.IOException;
-import java.util.Collections;
-import java.util.Iterator;
+import helper.Runtime;
+import objects.Airport;
 import java.util.List;
 
 public class Main {
@@ -16,7 +9,7 @@ public class Main {
         List<Airport> airportList = AirportList.generate();
 
 //        System.out.println(Filter.filterByIcaoCode("EDKK", airportList));
-        System.out.println(Filter.filterByCountry("Canada", airportList));
+          System.out.println(Filter.filterByCountry("Canada", airportList));
 //        System.out.println(CountryList.getAllCountries());
 //        System.out.println(airportList);
 

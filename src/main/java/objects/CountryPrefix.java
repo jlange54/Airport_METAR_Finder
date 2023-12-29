@@ -1,4 +1,4 @@
-package main.java.objects;
+package objects;
 
 public class CountryPrefix {
     private String prefix;

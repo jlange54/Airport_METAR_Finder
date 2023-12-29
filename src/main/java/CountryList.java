@@ -1,8 +1,6 @@
-package main.java;
-
-import main.java.objects.CountryPrefix;
-import main.resources.FileRW;
-import main.resources.Regex;
+import helper.FileRW;
+import helper.Regex;
+import objects.CountryPrefix;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,7 +8,7 @@ import java.util.List;
 
 public class CountryList {
 
-    private static final String countryPrefixListDirectory = "./data/airports/countryPrefixes.csv";
+    private static final String countryPrefixListDirectory = CountryPrefix.class.getResource(Config.countryPrefixes_csv).getPath().substring(1);
 
     private static List<CountryPrefix> countryPrefixList = new ArrayList<>();
 
