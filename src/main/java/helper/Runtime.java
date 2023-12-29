@@ -19,11 +19,14 @@ public class Runtime {
         switch (timeUnit) {
             case seconds:
                 System.out.println(type.toString()+" finished in: "+duration/1000L+ " seconds");
+                break;
             case minutes:
                 System.out.println(type.toString()+" finished in: "+duration/60000L+ " minutes");
+                break;
             case ms:
             default:
                 System.out.println(type.toString()+" finished in: "+duration+ " ms");
+                break;
         }
     }
 
