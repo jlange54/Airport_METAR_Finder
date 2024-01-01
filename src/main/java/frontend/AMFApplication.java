@@ -1,15 +1,11 @@
 package frontend;
 
-import backend.AirportList;
-import backend.objects.Airport;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.List;
 
 public class AMFApplication extends Application {
     @Override
