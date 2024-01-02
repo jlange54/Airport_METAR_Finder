@@ -1,14 +1,14 @@
 package frontend;
 
-import frontend.AMFApplication;
+import backend.AvwxApi;
 import helper.Runtime;
 
 public class Main {
     public static void main(String[] args) throws Exception {
         Runtime.start();
 
-        AMFApplication.main(args);
-
+//        AMFApplication.main(args);
+        AvwxApi.getMetarForStation("EDDK");
 
 //        System.out.println(backend.Filter.filterByIcaoCode("EDKK", airportList));
 //          System.out.println(Filter.filterByCountry("Canada", airportList));
