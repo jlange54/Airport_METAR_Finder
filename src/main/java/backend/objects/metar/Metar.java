@@ -1,6 +1,7 @@
 package backend.objects.metar;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 
 public class Metar {
@@ -9,19 +10,40 @@ public class Metar {
     private int densityAltitude;
     private int dewpoint;
     private String flightRules;
-    private LocalDateTime timestamp;
     private int pressureAltitude;
     private String raw;
     private double relativeHumidity;
     private String remarks;
     private int temperature;
+    private LocalDateTime timestamp;
     private Units units;
     private Visibility visibility;
     private int windDirection;
     private int windGusts;
     private int windSpeed;
-    private List<Integer> windVariableDirection;
+    private int[] windVariableDirection;
     private List<WxCodes> wxCode;
+
+    public Metar(Altimeter altimeter, List<Clouds> clouds, int densityAltitude, int dewpoint, String flightRules, int pressureAltitude, String raw, double relativeHumidity, String remarks, int temperature, LocalDateTime timestamp, Units units, Visibility visibility, int windDirection, int windGusts, int windSpeed, int[] windVariableDirection, List<WxCodes> wxCode) {
+        this.altimeter = altimeter;
+        this.clouds = clouds;
+        this.densityAltitude = densityAltitude;
+        this.dewpoint = dewpoint;
+        this.flightRules = flightRules;
+        this.pressureAltitude = pressureAltitude;
+        this.raw = raw;
+        this.relativeHumidity = relativeHumidity;
+        this.remarks = remarks;
+        this.temperature = temperature;
+        this.timestamp = timestamp;
+        this.units = units;
+        this.visibility = visibility;
+        this.windDirection = windDirection;
+        this.windGusts = windGusts;
+        this.windSpeed = windSpeed;
+        this.windVariableDirection = windVariableDirection;
+        this.wxCode = wxCode;
+    }
 
     public Altimeter getAltimeter() {
         return altimeter;
@@ -61,14 +83,6 @@ public class Metar {
 
     public void setFlightRules(String flightRules) {
         this.flightRules = flightRules;
-    }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
     }
 
     public int getPressureAltitude() {
@@ -111,6 +125,14 @@ public class Metar {
         this.temperature = temperature;
     }
 
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
+
     public Units getUnits() {
         return units;
     }
@@ -151,11 +173,11 @@ public class Metar {
         this.windSpeed = windSpeed;
     }
 
-    public List<Integer> getWindVariableDirection() {
+    public int[] getWindVariableDirection() {
         return windVariableDirection;
     }
 
-    public void setWindVariableDirection(List<Integer> windVariableDirection) {
+    public void setWindVariableDirection(int[] windVariableDirection) {
         this.windVariableDirection = windVariableDirection;
     }
 
@@ -175,18 +197,18 @@ public class Metar {
                 ", densityAltitude=" + densityAltitude +
                 ", dewpoint=" + dewpoint +
                 ", flightRules='" + flightRules + '\'' +
-                ", timestamp=" + timestamp +
                 ", pressureAltitude=" + pressureAltitude +
                 ", raw='" + raw + '\'' +
                 ", relativeHumidity=" + relativeHumidity +
                 ", remarks='" + remarks + '\'' +
                 ", temperature=" + temperature +
+                ", timestamp=" + timestamp +
                 ", units=" + units +
                 ", visibility=" + visibility +
                 ", windDirection=" + windDirection +
                 ", windGusts=" + windGusts +
                 ", windSpeed=" + windSpeed +
-                ", windVariableDirection=" + windVariableDirection +
+                ", windVariableDirection=" + Arrays.toString(windVariableDirection) +
                 ", wxCode=" + wxCode +
                 '}';
     }
