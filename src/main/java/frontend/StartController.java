@@ -23,6 +23,8 @@ public class StartController implements Initializable {
     @FXML
     private ListView<Airport> airportListView = new ListView<>();
 
+    private String currentIcao;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         List<Airport> airportList = null;
@@ -50,7 +52,8 @@ public class StartController implements Initializable {
        airportListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Airport>() {
            @Override
            public void changed(ObservableValue<? extends Airport> observable, Airport oldValue, Airport newValue) {
-               currentIcaoSelection.setText(airportListView.getSelectionModel().getSelectedItem().getIcaoCode());
+               currentIcao = airportListView.getSelectionModel().getSelectedItem().getIcaoCode();
+               currentIcaoSelection.setText(currentIcao);
            }
        });
     }
