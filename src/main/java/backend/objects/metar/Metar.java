@@ -1,11 +1,11 @@
 package backend.objects.metar;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
+import java.util.List;
 
 public class Metar {
     private Altimeter altimeter;
-    private Clouds[] clouds;
+    private List<Clouds> clouds;
     private int densityAltitude;
     private int dewpoint;
     private String flightRules;
@@ -20,29 +20,8 @@ public class Metar {
     private int windDirection;
     private int windGusts;
     private int windSpeed;
-    private int[] windVariableDirection;
-    private WxCodes[] wxCode;
-
-    public Metar(Altimeter altimeter, Clouds[] clouds, int densityAltitude, int dewpoint, String flightRules, LocalDateTime timestamp, int pressureAltitude, String raw, double relativeHumidity, String remarks, int temperature, Units units, Visibility visibility, int windDirection, int windGusts, int windSpeed, int[] windVariableDirection, WxCodes[] wxCode) {
-        this.altimeter = altimeter;
-        this.clouds = clouds;
-        this.densityAltitude = densityAltitude;
-        this.dewpoint = dewpoint;
-        this.flightRules = flightRules;
-        this.timestamp = timestamp;
-        this.pressureAltitude = pressureAltitude;
-        this.raw = raw;
-        this.relativeHumidity = relativeHumidity;
-        this.remarks = remarks;
-        this.temperature = temperature;
-        this.units = units;
-        this.visibility = visibility;
-        this.windDirection = windDirection;
-        this.windGusts = windGusts;
-        this.windSpeed = windSpeed;
-        this.windVariableDirection = windVariableDirection;
-        this.wxCode = wxCode;
-    }
+    private List<Integer> windVariableDirection;
+    private List<WxCodes> wxCode;
 
     public Altimeter getAltimeter() {
         return altimeter;
@@ -52,11 +31,11 @@ public class Metar {
         this.altimeter = altimeter;
     }
 
-    public Clouds[] getClouds() {
+    public List<Clouds> getClouds() {
         return clouds;
     }
 
-    public void setClouds(Clouds[] clouds) {
+    public void setClouds(List<Clouds> clouds) {
         this.clouds = clouds;
     }
 
@@ -172,19 +151,19 @@ public class Metar {
         this.windSpeed = windSpeed;
     }
 
-    public int[] getWindVariableDirection() {
+    public List<Integer> getWindVariableDirection() {
         return windVariableDirection;
     }
 
-    public void setWindVariableDirection(int[] windVariableDirection) {
+    public void setWindVariableDirection(List<Integer> windVariableDirection) {
         this.windVariableDirection = windVariableDirection;
     }
 
-    public WxCodes[] getWxCode() {
+    public List<WxCodes> getWxCode() {
         return wxCode;
     }
 
-    public void setWxCode(WxCodes[] wxCode) {
+    public void setWxCode(List<WxCodes> wxCode) {
         this.wxCode = wxCode;
     }
 
@@ -192,7 +171,7 @@ public class Metar {
     public String toString() {
         return "Metar{" +
                 "altimeter=" + altimeter +
-                ", clouds=" + Arrays.toString(clouds) +
+                ", clouds=" + clouds +
                 ", densityAltitude=" + densityAltitude +
                 ", dewpoint=" + dewpoint +
                 ", flightRules='" + flightRules + '\'' +
@@ -207,8 +186,8 @@ public class Metar {
                 ", windDirection=" + windDirection +
                 ", windGusts=" + windGusts +
                 ", windSpeed=" + windSpeed +
-                ", windVariableDirection=" + Arrays.toString(windVariableDirection) +
-                ", wxCode=" + Arrays.toString(wxCode) +
+                ", windVariableDirection=" + windVariableDirection +
+                ", wxCode=" + wxCode +
                 '}';
     }
 }
