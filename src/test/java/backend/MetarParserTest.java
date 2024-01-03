@@ -57,6 +57,7 @@ class MetarParserTest {
             "wx_codes\":[{\"repr\":\"-RA\",\"value\":\"Light Rain\"},{\"repr\":\"BR\",\"value\":\"Mist\"}]}";
 
         Metar testMetar = MetarParser.parse(jsonString);
+        System.out.println(testMetar);
 
         assertEquals(testMetar.getAltimeter().getRepr(), "A3009");
         assertEquals(testMetar.getAltimeter().getValue(), 30.09);
