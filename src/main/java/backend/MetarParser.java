@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MetarParser {
-    public static Metar parse (String input) throws IOException {
-        String sanitizedInput = input.replace("body:", "");
+    public static Metar parse (String sanitizedInput) throws IOException {
+//        String sanitizedInput = input.replace("body:", "");
 
         Altimeter altimeter = parseAltimeter(sanitizedInput);
         List<Clouds> clouds = parseClouds(sanitizedInput);
