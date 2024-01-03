@@ -4,6 +4,7 @@ module Airport.METAR.Finder {
     requires javax.ws.rs.api;
     requires jackson.core.asl;
     requires jackson.mapper.asl;
+    requires java.sql;
 
 
     opens frontend to javafx.fxml;
