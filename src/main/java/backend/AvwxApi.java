@@ -12,7 +12,7 @@ public class AvwxApi {
         Client client = ClientBuilder.newClient();
         Response response = client.target("https://avwx.rest/api/metar/" + icao)
                         .request(MediaType.TEXT_PLAIN_TYPE)
-                        .header("Authorization", Config.avwxToken)
+                        .header("Authorization", appsettings.avwxToken)
                         .get();
 
 //        System.out.println(response.readEntity(String.class));

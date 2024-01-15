@@ -11,7 +11,7 @@ import java.util.List;
 
 public class AirportList {
     public static List<Airport> generate () throws IOException {
-        String directory = AirportList.class.getResource(Config.airports_txt).getPath().substring(1);
+        String directory = AirportList.class.getResource(appsettings.airports_txt).getPath().substring(1);
 
         return assignCountryPrefix(generateFromFile(directory));
     }

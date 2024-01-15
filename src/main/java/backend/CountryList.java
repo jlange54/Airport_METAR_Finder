@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CountryList {
 
-    private static final String countryPrefixListDirectory = CountryPrefix.class.getResource(Config.countryPrefixes_csv).getPath().substring(1);
+    private static final String countryPrefixListDirectory = CountryPrefix.class.getResource(appsettings.countryPrefixes_csv).getPath().substring(1);
 
     private static List<CountryPrefix> countryPrefixList = new ArrayList<>();
 
